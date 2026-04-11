@@ -187,7 +187,7 @@ export default function ArteXavegaPage() {
                   {
                     icon: Users,
                     step: "3",
-                    title: t("A Puxada", "The Pull"),
+                    title: t("Alar", "The Pull"),
                     desc: t(
                       "A comunidade puxa a rede para terra em conjunto",
                       "The community pulls the net ashore together"
@@ -247,8 +247,8 @@ export default function ArteXavegaPage() {
                   <div className="space-y-4 text-driftwood leading-relaxed">
                     <p>
                       {t(
-                        "A Arte Xávega sempre foi mais do que uma simples técnica de pesca — é o motor económico de muitas comunidades costeiras portuguesas. O peixe fresco, capturado de manhã, é vendido diretamente na praia aos moradores locais, restaurantes e comerciantes, garantindo um circuito curto entre o mar e a mesa.",
-                        "Arte Xávega has always been more than a simple fishing technique — it is the economic engine of many Portuguese coastal communities. Fresh fish, caught in the morning, is sold directly on the beach to local residents, restaurants and traders, ensuring a short circuit from sea to table."
+                        "A Arte Xávega sempre foi mais do que uma simples técnica de pesca — é o motor económico de muitas comunidades costeiras portuguesas. O peixe fresco é vendido diretamente na praia aos moradores locais e comerciantes, garantindo um circuito curto entre o mar e a mesa.",
+                        "Arte Xávega has always been more than a simple fishing technique — it is the economic engine of many Portuguese coastal communities. Fresh fish is sold directly on the beach to local residents and traders, ensuring a short circuit from sea to table."
                       )}
                     </p>
                     <p>
