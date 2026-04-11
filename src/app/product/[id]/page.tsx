@@ -173,12 +173,12 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               {product.comingSoon && (
                 <div className="rounded-2xl bg-shell-50 p-5 border border-shell-200 mb-6">
                   <p className="text-sm font-semibold text-ocean-800 mb-1">
-                    {t("Volta em breve!", "Coming back soon!")}
+                    {t("Volta em maio!", "Coming back in May!")}
                   </p>
                   <p className="text-sm text-driftwood">
                     {t(
-                      "Este produto regressa no final do mês. Contacte-nos para ser notificado quando estiver disponível.",
-                      "This product returns at the end of the month. Contact us to be notified when available."
+                      "Este produto regressa em maio. Contacte-nos para ser notificado quando estiver disponível.",
+                      "This product returns in May. Contact us to be notified when available."
                     )}
                   </p>
                 </div>

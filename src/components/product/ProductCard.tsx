@@ -105,7 +105,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           {/* Coming soon / scarcity */}
           {product.comingSoon ? (
             <p className="text-xs font-medium text-ocean-500 pt-1">
-              {t("Em breve — contacte para ser avisado", "Coming soon — contact to be notified")}
+              {t("Disponível em maio", "Available in May")}
             </p>
           ) : product.inStock ? (
             <p className="text-xs font-medium text-ocean-500/70 pt-1">

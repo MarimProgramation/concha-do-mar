@@ -153,7 +153,8 @@ export const products: Product[] = [
     weight: "90g",
     ingredients: "Filetes de cavala, pickles, azeite, vinagre, alho e pimenta",
     ingredientsEn: "Mackerel fillets, pickles, olive oil, vinegar, garlic and pepper",
-    inStock: true,
+    inStock: false,
+    comingSoon: true,
     suggestion: "Perfeito para entradas, tostas ou tábuas de degustação.",
     suggestionEn: "Perfect for starters, toast or tasting boards.",
     characteristics: [
