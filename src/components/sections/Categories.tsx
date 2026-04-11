@@ -22,15 +22,15 @@ export function Categories() {
         {/* Section header */}
         <ScrollReveal className="text-center mb-16">
           <p className="text-sm font-semibold text-seafoam-500 uppercase tracking-widest mb-3">
-            {t("Explorar", "Explore")}
+            {t("Descubra", "Discover")}
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-ocean-800 mb-4">
-            {t("As Nossas Coleções", "Our Collections")}
+            {t("Conheça o Nosso Mundo", "Discover Our World")}
           </h2>
           <p className="mx-auto max-w-xl text-driftwood text-lg">
             {t(
-              "Cada coleção conta uma história única do mar português e da tradição conserveira.",
-              "Each collection tells a unique story of the Portuguese sea and preserving tradition."
+              "Da pesca noturna ao frasco — conheça os nossos produtos e a tradição que nos move.",
+              "From night fishing to jar — discover our products and the tradition that drives us."
             )}
           </p>
         </ScrollReveal>

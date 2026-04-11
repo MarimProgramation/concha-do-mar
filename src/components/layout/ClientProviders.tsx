@@ -9,7 +9,7 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
     <LanguageProvider>
       <Navbar />
       <FloatingElements />
-      <main>{children}</main>
+      <main className="pt-20">{children}</main>
     </LanguageProvider>
   );
 }

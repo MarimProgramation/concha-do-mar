@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import {
   Mail,
-  Phone,
   Clock,
   MessageCircle,
   Package,
@@ -19,17 +18,6 @@ export default function ContactosPage() {
   const { t } = useLanguage();
 
   const contactMethods = [
-    {
-      icon: Phone,
-      title: t("Telefone", "Phone"),
-      value: "+351 910 157 752",
-      description: t(
-        "Ligue-nos para fazer encomendas ou esclarecer dúvidas",
-        "Call us to place orders or ask questions"
-      ),
-      action: "tel:+351910157752",
-      actionLabel: t("Ligar Agora", "Call Now"),
-    },
     {
       icon: Mail,
       title: t("Email", "Email"),
@@ -60,8 +48,8 @@ export default function ContactosPage() {
       title: t("Como Encomendar", "How to Order"),
       items: [
         t(
-          "Contacte-nos por telefone, email ou WhatsApp",
-          "Contact us by phone, email or WhatsApp"
+          "Contacte-nos por email ou WhatsApp",
+          "Contact us by email or WhatsApp"
         ),
         t(
           "Indique os produtos e quantidades desejadas",
@@ -82,8 +70,7 @@ export default function ContactosPage() {
       title: t("Envio & Entrega", "Shipping & Delivery"),
       items: [
         t("Envio para todo o território nacional", "Shipping across Portugal"),
-        t("Envio grátis para encomendas acima de 25€", "Free shipping on orders over €25"),
-        t("Entrega em 2-5 dias úteis", "Delivery in 2-5 business days"),
+        t("Envio em 2-5 dias úteis", "Shipping in 2-5 business days"),
         t("Envio internacional disponível sob consulta", "International shipping available on request"),
       ],
     },
@@ -91,9 +78,8 @@ export default function ContactosPage() {
       icon: CreditCard,
       title: t("Pagamento", "Payment"),
       items: [
-        t("Transferência Bancária (MB Way)", "Bank Transfer (MB Way)"),
-        t("Multibanco", "Multibanco"),
-        t("Pagamento à cobrança (+ taxa)", "Cash on delivery (+ fee)"),
+        t("Transferência Bancária", "Bank Transfer"),
+        t("MB Way", "MB Way"),
         t("Pagamento confirmado antes do envio", "Payment confirmed before shipping"),
       ],
     },
@@ -126,7 +112,7 @@ export default function ContactosPage() {
 
           {/* Contact Methods */}
           <ScrollReveal>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6 mb-20">
               {contactMethods.map((method, index) => (
                 <motion.a
                   key={method.title}
@@ -204,7 +190,7 @@ export default function ContactosPage() {
             <div className="rounded-3xl bg-ocean-800 text-white p-10 md:p-14 text-center">
               <Clock className="h-8 w-8 text-ocean-300 mx-auto mb-4" />
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
-                {t("Horário de Funcionamento", "Business Hours")}
+                {t("Horário de Atendimento", "Service Hours")}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
                 <div>

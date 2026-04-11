@@ -25,8 +25,8 @@ export function Footer() {
               </Link>
               <p className="text-ocean-200 text-sm leading-relaxed mb-6 max-w-xs">
                 {t(
-                  "Conservas premium da costa portuguesa. Nascidas do mar, preparadas com dedicação, feitas para saborear.",
-                  "Premium preserves from the Portuguese coast. Born from the sea, prepared with dedication, made to savor."
+                  "De raízes no mar nasce o nosso sabor. Conservas feitas à mão na Fonte Da Telha. Produção limitada.",
+                  "We fish at night, prepare at dawn. Handmade preserves from Fonte Da Telha. Limited production."
                 )}
               </p>
               {/* Contact info */}
@@ -127,12 +127,14 @@ export function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-4">
               {[
-                { Icon: Instagram, label: "Instagram", href: "#" },
-                { Icon: Facebook, label: "Facebook", href: "#" },
+                { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/conchadomarft?igsh=MndvbGt6eW5zMzl2" },
+                { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/share/1NeWcy7NBW/?mibextid=wwXIfr" },
               ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-ocean-700/50 text-ocean-300 hover:bg-ocean-600 hover:text-white transition-all duration-300"
                   aria-label={label}
                 >

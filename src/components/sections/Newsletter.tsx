@@ -10,14 +10,38 @@ import { useLanguage } from "@/hooks/useLanguage";
 export function Newsletter() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const { t } = useLanguage();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || t("Ocorreu um erro.", "An error occurred."));
+        return;
+      }
+
       setSubmitted(true);
       setEmail("");
       setTimeout(() => setSubmitted(false), 4000);
+    } catch {
+      setError(t("Erro de ligação. Tente novamente.", "Connection error. Please try again."));
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,16 +71,16 @@ export function Newsletter() {
                 className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm px-5 py-2 text-sm font-medium text-white border border-white/20 mb-6"
               >
                 <Shell size={16} />
-                {t("Junte-se à Comunidade Concha", "Join the Concha Community")}
+                {t("Produção Limitada", "Limited Production")}
               </motion.div>
 
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                {t("Fique a Par das Novidades", "Stay in the Tide")}
+                {t("Seja o Primeiro a Saber", "Be the First to Know")}
               </h2>
               <p className="text-ocean-100 text-lg mb-10 leading-relaxed">
                 {t(
-                  "Subscreva para acesso antecipado a novos produtos, ofertas exclusivas e histórias do mar. Receba 15% de desconto na primeira encomenda.",
-                  "Subscribe for exclusive early access, special offers, and stories from the shore. Get 15% off your first order."
+                  "A nossa produção é limitada e os lotes esgotam depressa. Subscreva para ser avisado quando houver novos produtos disponíveis.",
+                  "Our production is limited and batches sell out fast. Subscribe to be notified when new products are available."
                 )}
               </p>
 
@@ -75,12 +99,14 @@ export function Newsletter() {
                   variant="ivory"
                   size="lg"
                   className="shrink-0 text-ocean-600 font-semibold"
-                  disabled={submitted}
+                  disabled={submitted || loading}
                 >
                   {submitted ? (
                     <>
                       <Check size={18} /> {t("Subscrito!", "Subscribed!")}
                     </>
+                  ) : loading ? (
+                    t("A subscrever...", "Subscribing...")
                   ) : (
                     <>
                       {t("Subscrever", "Subscribe")} <Send size={16} />
@@ -88,6 +114,10 @@ export function Newsletter() {
                   )}
                 </Button>
               </form>
+
+              {error && (
+                <p className="text-sm text-red-200 mt-3">{error}</p>
+              )}
 
               <p className="text-xs text-ocean-200 mt-4">
                 {t(

@@ -16,23 +16,24 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Concha do Mar — Conservas Premium Portuguesas",
+  title: "Concha do Mar — Conservas Artesanais da Fonte Da Telha",
   description:
-    "Descubra a Concha do Mar: conservas artesanais de peixe e marisco da costa portuguesa. Qualidade premium, sabor autêntico do Atlântico.",
+    "De raízes no mar nasce o nosso sabor. Conservas artesanais feitas à mão com peixe fresco da Fonte Da Telha. Produção limitada, sabor autêntico.",
   keywords: [
-    "conservas portuguesas",
-    "conservas de peixe",
-    "conservas de marisco",
-    "cavala em conserva",
-    "polvo em conserva",
-    "Concha do Mar",
-    "produtos portugueses",
     "conservas artesanais",
+    "polvo em conserva",
+    "cavala em conserva",
+    "paté de cavala",
+    "Fonte Da Telha",
+    "Concha do Mar",
+    "pesca noturna",
+    "produção limitada",
+    "conservas premium",
   ],
   openGraph: {
-    title: "Concha do Mar — Conservas Premium Portuguesas",
+    title: "Concha do Mar — Conservas Artesanais da Fonte Da Telha",
     description:
-      "Conservas artesanais de peixe e marisco da costa portuguesa. Nascidas do mar, feitas para si.",
+      "Do mar ao frasco, feito à mão. Pesca noturna, produção limitada, sabor autêntico.",
     type: "website",
     locale: "pt_PT",
   },

@@ -47,3 +47,15 @@ CREATE TABLE IF NOT EXISTS order_items (
   FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
   INDEX idx_order_id (order_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================
+-- Newsletter — Subscrições de stock
+-- ============================================
+
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  active TINYINT(1) DEFAULT 1,
+  INDEX idx_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -66,26 +67,47 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="text-sm font-semibold text-ocean-400 uppercase tracking-widest mb-4"
+        >
+          {t("Produção artesanal · Lotes limitados", "Artisanal production · Limited batches")}
+        </motion.p>
+
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
           className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] mb-6"
         >
-          <span className="text-ocean-800">{t("Nascidas do", "Born from the")}</span>
+          <span className="text-ocean-800">{t("De Raízes no Mar", "Rooted in the Sea")}</span>
           <br />
-          <span className="gradient-text">{t("Abraço do Mar", "Ocean's Embrace")}</span>
+          <span className="gradient-text">{t("Nasce o Nosso Sabor.", "Our Flavour is Born.")}</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mx-auto max-w-2xl text-lg md:text-xl text-driftwood leading-relaxed mb-10"
+          className="mx-auto max-w-2xl text-lg md:text-xl text-driftwood leading-relaxed mb-4"
         >
           {t(
-            "Descubra a Concha do Mar — conservas artesanais de peixe e marisco da costa portuguesa. Sabor autêntico do Atlântico, qualidade premium em cada lata.",
-            "Discover Concha do Mar — artisanal fish and seafood preserves from the Portuguese coast. Authentic Atlantic flavor, premium quality in every can."
+            "Conservas artesanais feitas à mão, do mar ao frasco. Todo o peixe é pescado por nós na Fonte Da Telha e preparado de maneira caseira, sem pressa, sem atalhos.",
+            "Handmade artisanal preserves, from sea to jar. All fish is caught by us in Fonte Da Telha and prepared the homemade way, with no rush, no shortcuts."
+          )}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mx-auto max-w-xl text-sm text-ocean-500 font-medium mb-10"
+        >
+          {t(
+            "Disponível enquanto durar o lote.",
+            "Available while stocks last."
           )}
         </motion.p>
 
@@ -95,12 +117,11 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.45 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button size="xl" className="min-w-[200px]">
-            {t("Ver Produtos", "Shop Now")} <ArrowRight size={20} />
-          </Button>
-          <Button variant="outline" size="xl" className="min-w-[200px]">
-            {t("Explorar Coleção", "Explore Collection")}
-          </Button>
+          <Link href="/colecoes/conservas-peixe">
+            <Button size="xl" className="min-w-[260px]">
+              {t("Quero Provar", "I Want to Try")} <ArrowRight size={20} />
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Trust badges */}
@@ -111,10 +132,10 @@ export function Hero() {
           className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-driftwood/70"
         >
           {[
-            t("Envio Grátis Acima de 25€", "Free Shipping Over €25"),
-            t("Artesanal com Dedicação", "Handcrafted With Love"),
-            t("Devoluções em 30 Dias", "30-Day Returns"),
-            t("Ingredientes Naturais", "Natural Ingredients"),
+            t("100% Artesanal", "100% Handmade"),
+            t("Sem Conservantes", "No Preservatives"),
+            t("Produção Limitada", "Limited Production"),
+            t("Pesca Noturna Tradicional", "Traditional Night Fishing"),
           ].map(
             (badge) => (
               <span key={badge} className="flex items-center gap-2">

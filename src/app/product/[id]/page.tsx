@@ -1,13 +1,12 @@
 "use client";
 
-import { use, useState } from "react";
+import { use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
   Truck,
-  RotateCcw,
   Shield,
   Share2,
   Phone,
@@ -24,7 +23,6 @@ import { formatPrice } from "@/lib/utils";
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const product = products.find((p) => p.id === id);
-  const [activeImage, setActiveImage] = useState(0);
   const { locale, t } = useLanguage();
 
   if (!product) {
@@ -49,6 +47,17 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const description = locale === "pt" ? product.description : product.descriptionEn;
   const badge = locale === "pt" ? product.badge : product.badgeEn;
   const ingredients = locale === "pt" ? product.ingredients : product.ingredientsEn;
+  const seasonal = locale === "pt" ? product.seasonal : product.seasonalEn;
+  const suggestion = locale === "pt" ? product.suggestion : product.suggestionEn;
+  const packInfo = locale === "pt" ? product.packInfo : product.packInfoEn;
+  const drainWeight = locale === "pt" ? product.drainWeight : product.drainWeightEn;
+  const characteristics = locale === "pt" ? product.characteristics : product.characteristicsEn;
+  const conservationProcess = locale === "pt" ? product.conservationProcess : product.conservationProcessEn;
+  const storageConditions = locale === "pt" ? product.storageConditions : product.storageConditionsEn;
+  const shelfLife = locale === "pt" ? product.shelfLife : product.shelfLifeEn;
+  const packagingInfo = locale === "pt" ? product.packaging : product.packagingEn;
+  const intendedUse = locale === "pt" ? product.intendedUse : product.intendedUseEn;
+  const observations = locale === "pt" ? product.observations : product.observationsEn;
 
   const relatedProducts = products
     .filter((p) => p.id !== product.id)
@@ -95,38 +104,17 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                   <div className="absolute top-4 left-4">
                     <Badge
                       variant={
-                        product.badge === "Mais Vendido" || product.badge === "Best Seller"
+                        product.badge === "Produção Limitada" || product.badge === "Limited Batch" || product.badge === "Mais Vendido" || product.badge === "Best Seller"
                           ? "bestseller"
-                          : "new"
+                          : product.badge === "Em Breve" || product.badge === "Coming Soon"
+                          ? "new"
+                          : "default"
                       }
                     >
                       {badge}
                     </Badge>
                   </div>
                 )}
-              </div>
-
-              {/* Thumbnail gallery (simulated with same image) */}
-              <div className="flex gap-3 mt-4">
-                {[0, 1, 2, 3].map((i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveImage(i)}
-                    className={`relative w-20 h-24 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                      activeImage === i
-                        ? "border-ocean-400 shadow-md"
-                        : "border-transparent opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    <Image
-                      src={product.image}
-                      alt={`${name} ${t("vista", "view")} ${i + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
-                  </button>
-                ))}
               </div>
             </motion.div>
 
@@ -163,18 +151,65 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               </div>
 
               {/* Description */}
-              <p className="text-driftwood leading-relaxed mb-6">
+              <p className="text-driftwood leading-relaxed mb-4">
                 {description}
               </p>
 
+              {/* Seasonal info */}
+              {seasonal && (
+                <p className="text-sm font-medium text-ocean-500 bg-ocean-50 rounded-xl px-4 py-2 mb-4 border border-ocean-100">
+                  {seasonal}
+                </p>
+              )}
+
+              {/* Pack info */}
+              {packInfo && (
+                <p className="text-sm font-medium text-seafoam-600 bg-seafoam-50 rounded-xl px-4 py-2 mb-4 border border-seafoam-100">
+                  {packInfo}
+                </p>
+              )}
+
+              {/* Coming soon notice */}
+              {product.comingSoon && (
+                <div className="rounded-2xl bg-shell-50 p-5 border border-shell-200 mb-6">
+                  <p className="text-sm font-semibold text-ocean-800 mb-1">
+                    {t("Volta em breve!", "Coming back soon!")}
+                  </p>
+                  <p className="text-sm text-driftwood">
+                    {t(
+                      "Este produto regressa no final do mês. Contacte-nos para ser notificado quando estiver disponível.",
+                      "This product returns at the end of the month. Contact us to be notified when available."
+                    )}
+                  </p>
+                </div>
+              )}
+
+              {/* Suggestion */}
+              {suggestion && (
+                <div className="rounded-2xl bg-pearl/50 p-5 border border-ocean-100 mb-4">
+                  <p className="text-sm font-semibold text-ocean-800 mb-1">
+                    {t("Sugestão de consumo:", "Serving suggestion:")}
+                  </p>
+                  <p className="text-sm text-driftwood">{suggestion}</p>
+                </div>
+              )}
+
               {/* Weight & Ingredients */}
-              <div className="space-y-3 mb-8 rounded-2xl bg-pearl/50 p-5 border border-ocean-100">
+              <div className="space-y-3 mb-6 rounded-2xl bg-pearl/50 p-5 border border-ocean-100">
                 {product.weight && (
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-semibold text-ocean-800">
                       {t("Peso Líquido:", "Net Weight:")}
                     </span>
                     <span className="text-sm text-driftwood">{product.weight}</span>
+                  </div>
+                )}
+                {drainWeight && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-semibold text-ocean-800">
+                      {t("Peso Escorrido:", "Drained Weight:")}
+                    </span>
+                    <span className="text-sm text-driftwood">{drainWeight}</span>
                   </div>
                 )}
                 {ingredients && (
@@ -187,14 +222,86 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                 )}
               </div>
 
+              {/* Characteristics */}
+              {characteristics && characteristics.length > 0 && (
+                <div className="mb-6 rounded-2xl bg-pearl/50 p-5 border border-ocean-100">
+                  <p className="text-sm font-semibold text-ocean-800 mb-2">
+                    {t("Características:", "Characteristics:")}
+                  </p>
+                  <ul className="space-y-1">
+                    {characteristics.map((item, i) => (
+                      <li key={i} className="text-sm text-driftwood flex items-start gap-2">
+                        <span className="text-ocean-400 mt-0.5">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Conservation, Storage, Shelf Life, Packaging */}
+              {(conservationProcess || storageConditions || shelfLife || packagingInfo) && (
+                <div className="space-y-4 mb-6 rounded-2xl bg-pearl/50 p-5 border border-ocean-100">
+                  {conservationProcess && (
+                    <div>
+                      <p className="text-sm font-semibold text-ocean-800 mb-1">
+                        {t("Processo de Conservação:", "Conservation Process:")}
+                      </p>
+                      <p className="text-sm text-driftwood">{conservationProcess}</p>
+                    </div>
+                  )}
+                  {storageConditions && (
+                    <div>
+                      <p className="text-sm font-semibold text-ocean-800 mb-1">
+                        {t("Condições de Conservação:", "Storage Conditions:")}
+                      </p>
+                      <p className="text-sm text-driftwood">{storageConditions}</p>
+                    </div>
+                  )}
+                  {shelfLife && (
+                    <div>
+                      <p className="text-sm font-semibold text-ocean-800 mb-1">
+                        {t("Prazo de Validade:", "Shelf Life:")}
+                      </p>
+                      <p className="text-sm text-driftwood">{shelfLife}</p>
+                    </div>
+                  )}
+                  {packagingInfo && (
+                    <div>
+                      <p className="text-sm font-semibold text-ocean-800 mb-1">
+                        {t("Embalagem:", "Packaging:")}
+                      </p>
+                      <p className="text-sm text-driftwood">{packagingInfo}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Observations */}
+              {observations && (
+                <p className="text-xs italic text-driftwood mb-8">
+                  {observations}
+                </p>
+              )}
+
               {/* Contact to Order */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
                 <Link href="/contactos" className="flex-1">
                   <Button size="xl" className="w-full">
-                    <Phone size={20} /> {t("Encomendar — Contacte-nos", "Order — Contact Us")}
+                    <Phone size={20} /> {product.comingSoon
+                      ? t("Avisar Quando Disponível", "Notify When Available")
+                      : t("Quero Encomendar", "I Want to Order")
+                    }
                   </Button>
                 </Link>
               </div>
+
+              {/* Scarcity message */}
+              {!product.comingSoon && product.inStock && (
+                <p className="text-xs text-center text-ocean-500 font-medium mb-8">
+                  {t("Disponível enquanto durar o lote.", "Available while stocks last.")}
+                </p>
+              )}
 
               {/* Action row */}
               <div className="flex items-center gap-4 mb-10">
@@ -210,10 +317,9 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               </div>
 
               {/* Trust badges */}
-              <div className="grid grid-cols-3 gap-4 rounded-2xl bg-ocean-50/50 p-5 border border-ocean-100">
+              <div className="grid grid-cols-2 gap-4 rounded-2xl bg-ocean-50/50 p-5 border border-ocean-100">
                 {[
                   { icon: Truck, label: t("Envio Grátis", "Free Shipping"), sub: t("Acima de 25€", "Over €25") },
-                  { icon: RotateCcw, label: t("Devoluções Fáceis", "Easy Returns"), sub: t("30 dias", "30-day policy") },
                   { icon: Shield, label: t("Pagamento Seguro", "Secure Payment"), sub: t("SSL encriptado", "SSL encrypted") },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div key={label} className="text-center">

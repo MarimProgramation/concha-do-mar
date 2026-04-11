@@ -12,38 +12,45 @@ export function FAQ() {
 
   const faqs = [
     {
-      question: t("Qual é a vossa política de envio?", "What is your shipping policy?"),
+      question: t("Quem faz estas conservas?", "Who makes these preserves?"),
       answer: t(
-        "Oferecemos envio grátis para encomendas acima de 25€. O envio standard demora 2-4 dias úteis em Portugal Continental. Envio expresso (1-2 dias úteis) disponível por 5€. Enviamos para as ilhas e para toda a Europa.",
-        "We offer free shipping on orders over €25. Standard shipping takes 2-4 business days in mainland Portugal. Express shipping (1-2 business days) is available for €5. We ship to the islands and throughout Europe."
+        "As nossas conservas são feitas de forma artesanal na Fonte Da Telha. Pescamos à noite com artes de cerco tradicionais e preparamos tudo de madrugada, à mão, sem máquinas.",
+        "Our preserves are made by hand in Fonte Da Telha. We fish at night with traditional seine nets and prepare everything at dawn, by hand, without machines."
       ),
     },
     {
-      question: t("Qual é a vossa política de devoluções?", "What is your return policy?"),
+      question: t("Por que é que a produção é limitada?", "Why is production limited?"),
       answer: t(
-        "Devido à natureza dos nossos produtos alimentares, não aceitamos devoluções. Garantimos a qualidade de todos os nossos produtos. Caso receba um produto danificado ou com defeito, entre em contacto connosco e resolveremos a situação o mais brevemente possível.",
-        "Due to the nature of our food products, we do not accept returns. We guarantee the quality of all our products. If you receive a damaged or defective product, please contact us and we will resolve the situation as soon as possible."
+        "Porque fazemos tudo manualmente e dependemos do que o mar nos dá. Não temos fábrica nem produção em série — cada lote é pequeno e feito com tempo. Quando acaba, só no próximo lote.",
+        "Because we do everything manually and depend on what the sea gives us. We have no factory or mass production — each batch is small and made with time. When it's gone, only in the next batch."
       ),
     },
     {
-      question: t("Os vossos produtos são naturais?", "Are your products natural?"),
+      question: t("Os produtos têm conservantes?", "Do the products have preservatives?"),
       answer: t(
-        "Absolutamente. A qualidade natural está no coração da Concha do Mar. Utilizamos ingredientes 100% naturais — peixe fresco do Atlântico, azeite virgem extra português e temperos naturais. Sem conservantes artificiais, sem corantes, sem aditivos.",
-        "Absolutely. Natural quality is at the heart of Concha do Mar. We use 100% natural ingredients — fresh Atlantic fish, Portuguese extra virgin olive oil and natural seasonings. No artificial preservatives, no colorings, no additives."
+        "Não. Os nossos produtos são esterilizados em autoclave e usamos apenas ingredientes naturais. Sem conservantes artificiais, sem corantes, sem aditivos.",
+        "No. Our products are autoclave-sterilized and we use only natural ingredients. No artificial preservatives, no colourings, no additives."
       ),
     },
     {
-      question: t("Qual é o prazo de validade das conservas?", "What is the shelf life of the preserves?"),
+      question: t("O polvo está sempre disponível?", "Is the octopus always available?"),
       answer: t(
-        "As nossas conservas têm um prazo de validade de 5 anos a partir da data de produção. Devem ser conservadas em local fresco e seco. Após abertura, refrigere e consuma no prazo de 3 dias.",
-        "Our preserves have a shelf life of 5 years from the production date. They should be stored in a cool, dry place. Once opened, refrigerate and consume within 3 days."
+        "Não — o polvo é um produto sazonal, disponível apenas de novembro a março e em quantidades muito limitadas. Quando o lote acaba, só na próxima temporada.",
+        "No — the octopus is a seasonal product, available only from November to March and in very limited quantities. When the batch runs out, only next season."
       ),
     },
     {
-      question: t("Como posso contactar o apoio ao cliente?", "How can I contact customer support?"),
+      question: t("Como posso encomendar?", "How can I order?"),
       answer: t(
-        "Pode contactar-nos por email em conchadomarft@gmail.com, por telefone ou WhatsApp para o +351 910 157 752. Normalmente respondemos em 24 horas. Visite a nossa página de contactos para mais informações.",
-        "You can reach us via email at conchadomarft@gmail.com, or by phone/WhatsApp at +351 910 157 752. We typically respond within 24 hours. Visit our contacts page for more information."
+        "Pode encomendar através do nosso WhatsApp, email ou telefone. Contacte-nos por conchadomarft@gmail.com ou +351 910 157 752. Respondemos em menos de 24 horas.",
+        "You can order via our WhatsApp, email or phone. Contact us at conchadomarft@gmail.com or +351 910 157 752. We respond within 24 hours."
+      ),
+    },
+    {
+      question: t("Qual é o prazo de validade?", "What is the shelf life?"),
+      answer: t(
+        "Os nossos produtos têm validade de 12 meses, desde que conservados em local fresco e seco. O polvo, após abertura, deve ser refrigerado e consumido no prazo máximo de 24 horas.",
+        "Our products have a shelf life of 12 months, stored in a cool, dry place. Octopus, once opened, should be refrigerated and consumed within 24 hours."
       ),
     },
   ];

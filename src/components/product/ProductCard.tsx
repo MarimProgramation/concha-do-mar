@@ -22,9 +22,9 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const category = locale === "pt" ? product.category : product.categoryEn;
   const badge = locale === "pt" ? product.badge : product.badgeEn;
 
-  const badgeVariant = product.badge === "Mais Vendido" || product.badge === "Best Seller"
+  const badgeVariant = product.badge === "Produção Limitada" || product.badge === "Limited Batch" || product.badge === "Mais Vendido" || product.badge === "Best Seller"
     ? "bestseller"
-    : product.badge === "Novidade" || product.badge === "New Arrival"
+    : product.badge === "Em Breve" || product.badge === "Coming Soon"
     ? "new"
     : "default";
 
@@ -101,6 +101,17 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           {product.weight && (
             <p className="text-xs text-driftwood pt-1">{product.weight}</p>
           )}
+
+          {/* Coming soon / scarcity */}
+          {product.comingSoon ? (
+            <p className="text-xs font-medium text-ocean-500 pt-1">
+              {t("Em breve — contacte para ser avisado", "Coming soon — contact to be notified")}
+            </p>
+          ) : product.inStock ? (
+            <p className="text-xs font-medium text-ocean-500/70 pt-1">
+              {t("Disponível enquanto durar o lote", "Available while stocks last")}
+            </p>
+          ) : null}
         </Link>
       </div>
     </motion.div>

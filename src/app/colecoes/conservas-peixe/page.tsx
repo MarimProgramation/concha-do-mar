@@ -35,12 +35,12 @@ export default function ConservasPeixePage() {
             <ArrowLeft size={16} /> {t("Voltar às Coleções", "Back to Collections")}
           </Link>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-2">
-            {t("Conservas de Peixe", "Fish Preserves")}
+            {t("As Nossas Conservas", "Our Preserves")}
           </h1>
           <p className="text-ocean-100 text-lg max-w-xl">
             {t(
-              "Os melhores peixes do Atlântico, preparados com receitas tradicionais e conservados em azeite virgem extra.",
-              "The finest Atlantic fish, prepared with traditional recipes and preserved in extra virgin olive oil."
+              "Peixe pescado de noite, preparado de madrugada e conservado à mão. Produção limitada — quando acaba, acaba.",
+              "Fish caught at night, prepared at dawn and preserved by hand. Limited production — when it's gone, it's gone."
             )}
           </p>
         </div>
@@ -64,9 +64,9 @@ export default function ConservasPeixePage() {
               const category = locale === "pt" ? product.category : product.categoryEn;
               const badge = locale === "pt" ? product.badge : product.badgeEn;
               const badgeVariant =
-                product.badge === "Mais Vendido" || product.badge === "Best Seller"
+                product.badge === "Produção Limitada" || product.badge === "Limited Batch" || product.badge === "Mais Vendido" || product.badge === "Best Seller"
                   ? "bestseller"
-                  : product.badge === "Novidade" || product.badge === "New Arrival"
+                  : product.badge === "Em Breve" || product.badge === "Coming Soon"
                   ? "new"
                   : "default";
 

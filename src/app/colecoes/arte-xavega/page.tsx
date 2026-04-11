@@ -253,8 +253,8 @@ export default function ArteXavegaPage() {
                     </p>
                     <p>
                       {t(
-                        "Este modelo de comércio direto preserva a frescura do peixe, apoia a economia local e mantém viva uma relação de confiança entre pescadores e consumidores que perdura há gerações. As conservas artesanais, como as da Concha do Mar, nascem desta mesma tradição — levando o sabor autêntico do mar português a todo o país.",
-                        "This direct commerce model preserves fish freshness, supports the local economy and keeps alive a trust relationship between fishermen and consumers that has endured for generations. Artisanal preserves, like those from Concha do Mar, are born from this same tradition — bringing the authentic taste of the Portuguese sea to the whole country."
+                        "Este modelo de comércio direto preserva a frescura do peixe, apoia a economia local e mantém viva uma relação de confiança entre pescadores e consumidores que perdura há gerações. As conservas artesanais, como as da Concha do Mar, nascem desta mesma tradição — levando o sabor autêntico do peixe da Fonte Da Telha, feito de maneira caseira, a todo o país.",
+                        "This direct commerce model preserves fish freshness, supports the local economy and keeps alive a trust relationship between fishermen and consumers that has endured for generations. Artisanal preserves, like those from Concha do Mar, are born from this same tradition — bringing the authentic homemade taste of Fonte Da Telha fish to the whole country."
                       )}
                     </p>
                   </div>
@@ -333,8 +333,8 @@ export default function ArteXavegaPage() {
               </h3>
               <p className="text-driftwood mb-6 max-w-lg mx-auto">
                 {t(
-                  "As nossas conservas artesanais são feitas com o mesmo peixe fresco das artes tradicionais. Encomende já!",
-                  "Our artisanal preserves are made with the same fresh fish from traditional fishing arts. Order now!"
+                  "As nossas conservas artesanais são feitas de maneira caseira com peixe fresco da Fonte Da Telha. Encomende já!",
+                  "Our artisanal preserves are homemade with fresh fish from Fonte Da Telha. Order now!"
                 )}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
