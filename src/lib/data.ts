@@ -142,7 +142,7 @@ export const products: Product[] = [
     id: "3",
     name: "Paté de Cavala",
     nameEn: "Mackerel Pâté",
-    price: 4.00,
+    price: 5.00,
     description: "Patê artesanal de cavala, cuidadosamente preparado com ingredientes naturais e selecionados. Perfeito para entradas, tostas ou tábuas de degustação.",
     descriptionEn: "Artisanal mackerel pâté, carefully prepared with natural and selected ingredients. Perfect for starters, toast or tasting boards.",
     category: "Conservas Artesanais",
